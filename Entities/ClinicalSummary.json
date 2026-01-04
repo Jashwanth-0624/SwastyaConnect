@@ -1,0 +1,54 @@
+{
+    "name": "ClinicalSummary",
+    "type": "object",
+    "properties": {
+      "patient_id": {
+        "type": "string",
+        "description": "Reference to patient"
+      },
+      "summary_text": {
+        "type": "string",
+        "description": "AI-generated clinical summary"
+      },
+      "diagnoses": {
+        "type": "array",
+        "items": {
+          "type": "string"
+        },
+        "description": "Current diagnoses"
+      },
+      "lab_results_summary": {
+        "type": "string",
+        "description": "Summary of recent lab results"
+      },
+      "medications_summary": {
+        "type": "string",
+        "description": "Summary of current medications"
+      },
+      "risk_score": {
+        "type": "number",
+        "description": "Overall risk score (0-100)"
+      },
+      "risk_factors": {
+        "type": "array",
+        "items": {
+          "type": "string"
+        },
+        "description": "Identified risk factors"
+      },
+      "generated_date": {
+        "type": "string",
+        "format": "date-time",
+        "description": "When summary was generated"
+      },
+      "last_visit_date": {
+        "type": "string",
+        "format": "date",
+        "description": "Last hospital visit"
+      }
+    },
+    "required": [
+      "patient_id",
+      "summary_text"
+    ]
+  }

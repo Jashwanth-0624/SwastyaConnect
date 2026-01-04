@@ -1,0 +1,34 @@
+{
+    "name": "FeatureInterest",
+    "type": "object",
+    "properties": {
+      "feature_name": {
+        "type": "string",
+        "description": "Name of the feature user is interested in"
+      },
+      "user_email": {
+        "type": "string",
+        "format": "email",
+        "description": "Email of interested user"
+      },
+      "interest_level": {
+        "type": "string",
+        "enum": [
+          "curious",
+          "interested",
+          "very_interested",
+          "need_urgently"
+        ],
+        "default": "interested",
+        "description": "Level of interest"
+      },
+      "notes": {
+        "type": "string",
+        "description": "Additional notes from user"
+      }
+    },
+    "required": [
+      "feature_name",
+      "user_email"
+    ]
+  }

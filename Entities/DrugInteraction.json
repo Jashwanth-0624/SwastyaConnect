@@ -1,0 +1,71 @@
+{
+    "name": "DrugInteraction",
+    "type": "object",
+    "properties": {
+      "patient_id": {
+        "type": "string",
+        "description": "Reference to patient"
+      },
+      "drug_name": {
+        "type": "string",
+        "description": "Drug being checked"
+      },
+      "interaction_type": {
+        "type": "string",
+        "enum": [
+          "drug_drug",
+          "drug_allergy",
+          "drug_condition",
+          "duplicate_therapy"
+        ],
+        "description": "Type of interaction"
+      },
+      "severity": {
+        "type": "string",
+        "enum": [
+          "minor",
+          "moderate",
+          "major",
+          "contraindicated"
+        ],
+        "description": "Interaction severity"
+      },
+      "interacting_with": {
+        "type": "string",
+        "description": "What the drug interacts with"
+      },
+      "description": {
+        "type": "string",
+        "description": "Detailed interaction description"
+      },
+      "clinical_effects": {
+        "type": "string",
+        "description": "Potential clinical effects"
+      },
+      "recommendations": {
+        "type": "string",
+        "description": "Clinical recommendations"
+      },
+      "status": {
+        "type": "string",
+        "enum": [
+          "active",
+          "reviewed",
+          "override_approved",
+          "resolved"
+        ],
+        "default": "active",
+        "description": "Interaction status"
+      },
+      "reviewed_by": {
+        "type": "string",
+        "description": "Doctor who reviewed"
+      }
+    },
+    "required": [
+      "patient_id",
+      "drug_name",
+      "interaction_type",
+      "severity"
+    ]
+  }

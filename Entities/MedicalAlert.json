@@ -1,0 +1,77 @@
+{
+    "name": "MedicalAlert",
+    "type": "object",
+    "properties": {
+      "patient_id": {
+        "type": "string",
+        "description": "Reference to patient"
+      },
+      "alert_type": {
+        "type": "string",
+        "enum": [
+          "abnormal_vitals",
+          "lab_result",
+          "medication_conflict",
+          "emergency_admission",
+          "critical_value"
+        ],
+        "description": "Type of alert"
+      },
+      "severity": {
+        "type": "string",
+        "enum": [
+          "low",
+          "medium",
+          "high",
+          "critical"
+        ],
+        "default": "medium",
+        "description": "Alert severity"
+      },
+      "title": {
+        "type": "string",
+        "description": "Alert title"
+      },
+      "message": {
+        "type": "string",
+        "description": "Detailed alert message"
+      },
+      "vital_type": {
+        "type": "string",
+        "description": "Type of vital (if applicable)"
+      },
+      "value": {
+        "type": "string",
+        "description": "Measured value"
+      },
+      "normal_range": {
+        "type": "string",
+        "description": "Normal range for comparison"
+      },
+      "status": {
+        "type": "string",
+        "enum": [
+          "active",
+          "acknowledged",
+          "resolved"
+        ],
+        "default": "active",
+        "description": "Alert status"
+      },
+      "acknowledged_by": {
+        "type": "string",
+        "description": "User who acknowledged the alert"
+      },
+      "acknowledged_at": {
+        "type": "string",
+        "format": "date-time",
+        "description": "When alert was acknowledged"
+      }
+    },
+    "required": [
+      "patient_id",
+      "alert_type",
+      "title",
+      "message"
+    ]
+  }

@@ -1,0 +1,61 @@
+{
+    "name": "DemoRequest",
+    "type": "object",
+    "properties": {
+      "full_name": {
+        "type": "string",
+        "description": "Full name of the person requesting demo"
+      },
+      "email": {
+        "type": "string",
+        "format": "email",
+        "description": "Email address"
+      },
+      "phone": {
+        "type": "string",
+        "description": "Phone number"
+      },
+      "organization": {
+        "type": "string",
+        "description": "Hospital or organization name"
+      },
+      "role": {
+        "type": "string",
+        "enum": [
+          "doctor",
+          "admin",
+          "it_manager",
+          "cio",
+          "other"
+        ],
+        "description": "Role in organization"
+      },
+      "interested_features": {
+        "type": "array",
+        "items": {
+          "type": "string"
+        },
+        "description": "List of features they're interested in"
+      },
+      "message": {
+        "type": "string",
+        "description": "Additional message or requirements"
+      },
+      "status": {
+        "type": "string",
+        "enum": [
+          "pending",
+          "contacted",
+          "demo_scheduled",
+          "completed"
+        ],
+        "default": "pending",
+        "description": "Status of the demo request"
+      }
+    },
+    "required": [
+      "full_name",
+      "email",
+      "organization"
+    ]
+  }

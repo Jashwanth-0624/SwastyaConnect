@@ -1,0 +1,58 @@
+{
+    "name": "MedicalDocument",
+    "type": "object",
+    "properties": {
+      "patient_id": {
+        "type": "string",
+        "description": "Reference to patient"
+      },
+      "document_type": {
+        "type": "string",
+        "enum": [
+          "prescription",
+          "lab_report",
+          "clinical_note",
+          "discharge_summary",
+          "imaging_report"
+        ],
+        "description": "Type of document"
+      },
+      "file_url": {
+        "type": "string",
+        "description": "URL to uploaded document"
+      },
+      "extracted_data": {
+        "type": "object",
+        "description": "Structured data extracted via OCR"
+      },
+      "extraction_status": {
+        "type": "string",
+        "enum": [
+          "pending",
+          "processing",
+          "completed",
+          "failed"
+        ],
+        "default": "pending",
+        "description": "Status of OCR extraction"
+      },
+      "raw_text": {
+        "type": "string",
+        "description": "Raw OCR text output"
+      },
+      "confidence_score": {
+        "type": "number",
+        "description": "OCR confidence score"
+      },
+      "processed_date": {
+        "type": "string",
+        "format": "date-time",
+        "description": "When document was processed"
+      }
+    },
+    "required": [
+      "patient_id",
+      "document_type",
+      "file_url"
+    ]
+  }

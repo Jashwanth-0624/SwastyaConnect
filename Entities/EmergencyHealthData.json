@@ -1,0 +1,72 @@
+{
+    "name": "EmergencyHealthData",
+    "type": "object",
+    "properties": {
+      "patient_id": {
+        "type": "string",
+        "description": "Reference to patient"
+      },
+      "qr_code_url": {
+        "type": "string",
+        "description": "URL to generated QR code image"
+      },
+      "qr_code_data": {
+        "type": "string",
+        "description": "Encoded QR code data string"
+      },
+      "blood_group": {
+        "type": "string",
+        "description": "Blood group"
+      },
+      "allergies": {
+        "type": "array",
+        "items": {
+          "type": "string"
+        },
+        "description": "Critical allergies"
+      },
+      "current_medications": {
+        "type": "array",
+        "items": {
+          "type": "string"
+        },
+        "description": "Current medications"
+      },
+      "chronic_conditions": {
+        "type": "array",
+        "items": {
+          "type": "string"
+        },
+        "description": "Chronic conditions"
+      },
+      "past_surgeries": {
+        "type": "array",
+        "items": {
+          "type": "string"
+        },
+        "description": "Past surgeries"
+      },
+      "emergency_contact": {
+        "type": "string",
+        "description": "Emergency contact"
+      },
+      "generated_at": {
+        "type": "string",
+        "format": "date-time",
+        "description": "When QR was generated"
+      },
+      "access_count": {
+        "type": "number",
+        "default": 0,
+        "description": "Number of times QR was scanned"
+      },
+      "last_accessed": {
+        "type": "string",
+        "format": "date-time",
+        "description": "Last time QR was scanned"
+      }
+    },
+    "required": [
+      "patient_id"
+    ]
+  }

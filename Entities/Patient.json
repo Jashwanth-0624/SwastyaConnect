@@ -1,0 +1,110 @@
+{
+    "name": "Patient",
+    "type": "object",
+    "properties": {
+      "patient_id": {
+        "type": "string",
+        "description": "Unique patient identifier"
+      },
+      "full_name": {
+        "type": "string",
+        "description": "Patient full name"
+      },
+      "date_of_birth": {
+        "type": "string",
+        "format": "date",
+        "description": "Date of birth"
+      },
+      "gender": {
+        "type": "string",
+        "enum": [
+          "male",
+          "female",
+          "other"
+        ],
+        "description": "Gender"
+      },
+      "blood_group": {
+        "type": "string",
+        "enum": [
+          "A+",
+          "A-",
+          "B+",
+          "B-",
+          "AB+",
+          "AB-",
+          "O+",
+          "O-"
+        ],
+        "description": "Blood group"
+      },
+      "phone": {
+        "type": "string",
+        "description": "Contact number"
+      },
+      "email": {
+        "type": "string",
+        "format": "email",
+        "description": "Email address"
+      },
+      "address": {
+        "type": "string",
+        "description": "Residential address"
+      },
+      "emergency_contact": {
+        "type": "string",
+        "description": "Emergency contact number"
+      },
+      "allergies": {
+        "type": "array",
+        "items": {
+          "type": "string"
+        },
+        "description": "Known allergies"
+      },
+      "chronic_conditions": {
+        "type": "array",
+        "items": {
+          "type": "string"
+        },
+        "description": "Chronic medical conditions"
+      },
+      "current_medications": {
+        "type": "array",
+        "items": {
+          "type": "object",
+          "properties": {
+            "name": {
+              "type": "string"
+            },
+            "dosage": {
+              "type": "string"
+            },
+            "frequency": {
+              "type": "string"
+            }
+          }
+        },
+        "description": "Current medications"
+      },
+      "past_surgeries": {
+        "type": "array",
+        "items": {
+          "type": "string"
+        },
+        "description": "Past surgical history"
+      },
+      "abdm_id": {
+        "type": "string",
+        "description": "ABDM Health ID"
+      },
+      "unified_patient_id": {
+        "type": "string",
+        "description": "Unified Patient ID across hospitals"
+      }
+    },
+    "required": [
+      "full_name",
+      "date_of_birth"
+    ]
+  }

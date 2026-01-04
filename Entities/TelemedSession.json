@@ -1,0 +1,87 @@
+{
+    "name": "TelemedSession",
+    "type": "object",
+    "properties": {
+      "patient_id": {
+        "type": "string",
+        "description": "Reference to patient"
+      },
+      "doctor_name": {
+        "type": "string",
+        "description": "Doctor conducting session"
+      },
+      "doctor_email": {
+        "type": "string",
+        "description": "Doctor email"
+      },
+      "session_status": {
+        "type": "string",
+        "enum": [
+          "scheduled",
+          "in_progress",
+          "completed",
+          "cancelled"
+        ],
+        "default": "scheduled",
+        "description": "Session status"
+      },
+      "scheduled_time": {
+        "type": "string",
+        "format": "date-time",
+        "description": "Scheduled date/time"
+      },
+      "duration_minutes": {
+        "type": "number",
+        "description": "Session duration"
+      },
+      "chief_complaint": {
+        "type": "string",
+        "description": "Patient's main complaint"
+      },
+      "diagnosis": {
+        "type": "string",
+        "description": "Diagnosis made during session"
+      },
+      "prescriptions": {
+        "type": "array",
+        "items": {
+          "type": "object",
+          "properties": {
+            "medication": {
+              "type": "string"
+            },
+            "dosage": {
+              "type": "string"
+            },
+            "duration": {
+              "type": "string"
+            }
+          }
+        },
+        "description": "Prescriptions issued"
+      },
+      "notes": {
+        "type": "string",
+        "description": "Clinical notes"
+      },
+      "follow_up_required": {
+        "type": "boolean",
+        "default": false,
+        "description": "Follow-up needed"
+      },
+      "follow_up_date": {
+        "type": "string",
+        "format": "date",
+        "description": "Follow-up date"
+      },
+      "meeting_link": {
+        "type": "string",
+        "description": "Video call link"
+      }
+    },
+    "required": [
+      "patient_id",
+      "doctor_name",
+      "scheduled_time"
+    ]
+  }

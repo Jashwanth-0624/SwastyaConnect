@@ -1,0 +1,79 @@
+{
+    "name": "ABDMRecord",
+    "type": "object",
+    "properties": {
+      "patient_id": {
+        "type": "string",
+        "description": "Reference to patient"
+      },
+      "abdm_health_id": {
+        "type": "string",
+        "description": "ABDM Health ID (username@abdm)"
+      },
+      "phr_address": {
+        "type": "string",
+        "description": "Personal Health Record address"
+      },
+      "abha_number": {
+        "type": "string",
+        "description": "14-digit ABHA number"
+      },
+      "link_status": {
+        "type": "string",
+        "enum": [
+          "not_linked",
+          "pending",
+          "linked",
+          "failed"
+        ],
+        "default": "not_linked",
+        "description": "ABDM linking status"
+      },
+      "consent_requests": {
+        "type": "array",
+        "items": {
+          "type": "object",
+          "properties": {
+            "request_id": {
+              "type": "string"
+            },
+            "hip_name": {
+              "type": "string"
+            },
+            "status": {
+              "type": "string"
+            },
+            "date": {
+              "type": "string"
+            }
+          }
+        },
+        "description": "ABDM consent requests"
+      },
+      "linked_facilities": {
+        "type": "array",
+        "items": {
+          "type": "string"
+        },
+        "description": "Healthcare facilities linked via ABDM"
+      },
+      "last_sync": {
+        "type": "string",
+        "format": "date-time",
+        "description": "Last ABDM data sync"
+      },
+      "verification_status": {
+        "type": "string",
+        "enum": [
+          "unverified",
+          "pending",
+          "verified"
+        ],
+        "default": "unverified",
+        "description": "KYC verification status"
+      }
+    },
+    "required": [
+      "patient_id"
+    ]
+  }

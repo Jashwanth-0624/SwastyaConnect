@@ -1,0 +1,79 @@
+{
+    "name": "ConsentRecord",
+    "type": "object",
+    "properties": {
+      "patient_id": {
+        "type": "string",
+        "description": "Reference to patient"
+      },
+      "requester_name": {
+        "type": "string",
+        "description": "Name of doctor/hospital requesting access"
+      },
+      "requester_email": {
+        "type": "string",
+        "description": "Email of requester"
+      },
+      "data_types": {
+        "type": "array",
+        "items": {
+          "type": "string",
+          "enum": [
+            "medical_history",
+            "lab_results",
+            "prescriptions",
+            "imaging",
+            "vitals",
+            "allergies",
+            "all_records"
+          ]
+        },
+        "description": "Types of data requested"
+      },
+      "purpose": {
+        "type": "string",
+        "description": "Purpose of data access"
+      },
+      "consent_status": {
+        "type": "string",
+        "enum": [
+          "pending",
+          "approved",
+          "rejected",
+          "expired",
+          "revoked"
+        ],
+        "default": "pending",
+        "description": "Status of consent"
+      },
+      "valid_from": {
+        "type": "string",
+        "format": "date-time",
+        "description": "Consent valid from"
+      },
+      "valid_until": {
+        "type": "string",
+        "format": "date-time",
+        "description": "Consent valid until"
+      },
+      "conditions": {
+        "type": "string",
+        "description": "Special conditions or restrictions"
+      },
+      "approved_by": {
+        "type": "string",
+        "description": "Patient who approved"
+      },
+      "approved_at": {
+        "type": "string",
+        "format": "date-time",
+        "description": "When consent was approved"
+      }
+    },
+    "required": [
+      "patient_id",
+      "requester_name",
+      "data_types",
+      "purpose"
+    ]
+  }

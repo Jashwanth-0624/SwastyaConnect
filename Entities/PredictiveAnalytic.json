@@ -1,0 +1,67 @@
+{
+    "name": "PredictiveAnalytic",
+    "type": "object",
+    "properties": {
+      "patient_id": {
+        "type": "string",
+        "description": "Reference to patient"
+      },
+      "prediction_type": {
+        "type": "string",
+        "enum": [
+          "readmission_risk",
+          "disease_progression",
+          "icu_transfer",
+          "sepsis_warning",
+          "mortality_risk"
+        ],
+        "description": "Type of prediction"
+      },
+      "risk_score": {
+        "type": "number",
+        "description": "Risk score percentage (0-100)"
+      },
+      "risk_level": {
+        "type": "string",
+        "enum": [
+          "low",
+          "moderate",
+          "high",
+          "critical"
+        ],
+        "description": "Risk level category"
+      },
+      "contributing_factors": {
+        "type": "array",
+        "items": {
+          "type": "string"
+        },
+        "description": "Factors contributing to the risk"
+      },
+      "recommendations": {
+        "type": "array",
+        "items": {
+          "type": "string"
+        },
+        "description": "Recommended actions"
+      },
+      "prediction_date": {
+        "type": "string",
+        "format": "date-time",
+        "description": "When prediction was made"
+      },
+      "model_version": {
+        "type": "string",
+        "description": "AI model version used"
+      },
+      "confidence_score": {
+        "type": "number",
+        "description": "Confidence in prediction (0-100)"
+      }
+    },
+    "required": [
+      "patient_id",
+      "prediction_type",
+      "risk_score"
+    ]
+  }
